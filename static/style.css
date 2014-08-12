@@ -1,0 +1,41 @@
+body {
+  font-family:Verdana;
+  background-color:#111111;
+  margin: 5px 5px 5px 5px;
+}
+
+h1 {
+  font-size:16pt;
+  color:red;
+  text-align:center;
+}
+
+h2 {
+  font-size:14pt;
+  color:blue;
+}
+
+p {
+  font-size:9pt;
+  color:black;
+}
+
+.tag {
+  font-size:8pt;
+  font-family:monospace;
+  color:#ffffff;
+  background-color:blue;
+}
+
+a:link{color:#ffffff;text-decoration:none}
+a:visited{color:#ffffff}
+a:hover{color:#red;text-decoration:underline}
+a:active{color:#ffffff}
+
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
