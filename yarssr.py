@@ -39,7 +39,7 @@ def index():
   return render_template("index.html", items=items)
 
 @app.route('/es')
-def index():
+def index_es():
   RSS_LIST = [
     (u"Naukas", "http://naukas.com/feed/"),
     (u"Yuri", "http://www.lapizarradeyuri.com/feed/"),
