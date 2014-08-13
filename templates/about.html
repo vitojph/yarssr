@@ -16,23 +16,13 @@
 
 <h1>Yet Another RSS Reader</h1>
 
-{% for item in items %}
+<p>
+  This is a small personal project playing around with some NLP libraries in Python such as <a href="http://www.clips.ua.ac.be/pattern">Pattern</a> and <a href="http://www.alchemyapi.com/">AlchemyAPI</a>.
+</p>
 
-  <h2>{{item["site"]}}</h2>
-
-  <ul>
-    {% for feed in item["feedlist"] %}
-      <li>
-        <p><a href="{{feed["url"]}}" target="_blank">{{feed["title"]}}</a></p>
-        <!--<p>{{feed["text"][:100]}}</a></p>-->
-        <p>{% for entity in feed["entities"] %}
-          <span class="tag"><a href="{{entity[1]}}" target="_blank">{{entity[0]}}</a></span>
-        {% endfor %}</p>
-      </li>
-    {% endfor %}
-</ul>
-
-{% endfor %}
+<p>
+  <img src="http://www.alchemyapi.com/sites/default/files/alchemyAPI.png" alt="Text Analysis by AlchemyAPI" />
+</p>
 
 <div id="footer">
 <p>| <a href="http://vitojph.github.io">vitojph</a> | <a href="http://www.alchemyapi.com/">Text Analysis by AlchemyAPI</a> | 2014 |</p>
