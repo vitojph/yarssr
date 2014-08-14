@@ -1,32 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
   <title>Yet Another RSS Reader</title>
-  <meta charset="utf-8">
-  <meta name="description" content="RSS reader">
-  <meta name="author" content="Víctor Peinado">
-  <link rel="icon" type="image/ico" href="static/favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <meta charset='utf-8'>
+  <meta name='description' content='RSS reader'>
+  <meta name='author' content='Víctor Peinado'>
+  <link rel='icon' type='image/ico' href='static/favicon.ico'/>
+  <link rel='stylesheet' type='text/css' href='static/style.css'>
 </head>
 <body>
 
-<div class="header">
-<p>| <a href="/">EN</a> | <a href="/es">ES</a> | <a href="/about">about</a> |</p>
+<div class='header'>
+<p>| <a href='/'>EN</a> | <a href='/es'>ES</a> | <a href='/about'>about</a> |</p>
 </div>
 
 <h1>Yet Another RSS Reader</h1>
 
 {% for item in items %}
 
-  <h2>{{item["site"]}}</h2>
+  <h2>{{item['site']}}</h2>
 
   <ul>
-    {% for feed in item["feedlist"] %}
+    {% for feed in item['feedlist'] %}
       <li>
-        <p><a href="{{feed["url"]}}" target="_blank">{{feed["title"]}}</a></p>
-        <!--<p>{{feed["text"][:100]}}</a></p>-->
-        <p>{% for entity in feed["entities"] %}
-          <span class="tag"><a href="{{entity[1]}}" target="_blank">{{entity[0]}}</a></span>
+        <p><a href='{{feed['url']}}' target='_blank'>{{feed['title']}}</a></p>
+        <!--<p>{{feed['text'][:100]}}</a></p>-->
+        <p>{% for entity in feed['entities'] %}
+          <span class='tag'><a href='{{entity[1]}}' target='_blank'>{{entity[0]}}</a></span>
         {% endfor %}</p>
       </li>
     {% endfor %}
@@ -34,8 +34,8 @@
 
 {% endfor %}
 
-<div class="footer">
-<p>| 2014 | <a href="http://vitojph.github.io">vitojph</a> | <a href="http://www.alchemyapi.com/">Text Analysis by AlchemyAPI</a> and <a href="https://textalytics.com/">textalytics</a>|</p>
+<div class='footer'>
+<p>| 2014 | <a href='http://vitojph.github.io'>vitojph</a> | <a href='http://www.alchemyapi.com/'>Text Analysis by AlchemyAPI</a> and <a href='https://textalytics.com/'>textalytics</a>|</p>
 </div>
 
 

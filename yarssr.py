@@ -22,9 +22,9 @@ alchemyapi = AlchemyAPI()
 @app.route('/')
 def index():
   RSS_LIST = [
-    (u"Lifehacker", "http://feeds.gawker.com/lifehacker/vip"),
-    (u"The Verge", "http://www.theverge.com/rss/index.xml"),
-    (u"Zen Habits", "http://feeds.feedburner.com/zenhabits?format=xml")
+    (u'Lifehacker', 'http://feeds.gawker.com/lifehacker/vip'),
+    (u'The Verge', 'http://www.theverge.com/rss/index.xml'),
+    (u'Zen Habits', 'http://feeds.feedburner.com/zenhabits?format=xml')
   ]
 
   items = []
@@ -33,27 +33,27 @@ def index():
     feedlist = []
     for result in reader.search(feed[1])[:10]:
       clean_text = plaintext(result.text)
-      response = alchemyapi.entities("text", result.text)
+      response = alchemyapi.entities('text', result.text)
 
       entities = []
-      for entity in response["entities"]:
-        if entity.has_key("disambiguated"):
-          dbpedia_uri = entity["disambiguated"]["dbpedia"]
+      for entity in response['entities']:
+        if entity.has_key('disambiguated'):
+          dbpedia_uri = entity['disambiguated']['dbpedia']
         else:
           dbpedia_uri = None
-        entities.append((entity["text"], dbpedia_uri))
+        entities.append((entity['text'], dbpedia_uri))
 
       feedlist.append(dict(title=result.title, url=result.url, text=clean_text, entities=entities))
     items.append(dict(site=feed[0], feedlist=feedlist))
-  return render_template("index.html", items=items)
+  return render_template('index.html', items=items)
 
 
 @app.route('/es')
 def index_es():
   RSS_LIST = [
-    (u"Naukas", "http://naukas.com/feed/"),
-    (u"Yuri", "http://www.lapizarradeyuri.com/feed/"),
-    (u"Menéame", "http://www.meneame.net/rss")
+    (u'Menéame', 'http://meneame.feedsportal.com/rss'),
+    (u'Naukas', 'http://feeds.feedburner.com/naukas'),
+    (u'Yuri', 'http://www.lapizarradeyuri.com/feed/')
   ]
 
   items = []
@@ -61,7 +61,7 @@ def index_es():
   for feed in RSS_LIST:
     feedlist = []
     for result in reader.search(feed[1])[:10]:
-      clean_text = plaintext(result.text)
+      clean_text = plaintext(result.text).encode('utf-8')
       params = urllib.urlencode({
         'key': '4c4ded0a7c279c9f747a8f750e223363', # topic extraction
         'of': 'json',
@@ -79,22 +79,22 @@ def index_es():
           if e.has_key('semld_list'):
             for uri in e['semld_list']:
               if 'es.wikipedia' in uri:
-                entities.append((e["form"], uri))
+                entities.append((e['form'], uri))
                 break
               elif 'en.wikipedia' in uri:
-                entities.append((e["form"], uri))
+                entities.append((e['form'], uri))
               else:
-                entities.append((e["form"], None))
+                entities.append((e['form'], None))
 
       feedlist.append(dict(title=result.title, url=result.url, text=clean_text, entities=entities))
     items.append(dict(site=feed[0], feedlist=feedlist))
-  return render_template("index.html", items=items)
+  return render_template('index.html', items=items)
 
 
 @app.route('/about')
 def about():
-  return render_template("about.html")
+  return render_template('about.html')
 
 
-if __name__ == "__main__":
-  app.run(host="0.0.0.0", debug=True)
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', debug=True)
