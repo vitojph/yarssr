@@ -53,7 +53,7 @@ def index_es():
   RSS_LIST = [
     (u'Menéame', 'http://meneame.feedsportal.com/rss'),
     (u'Naukas', 'http://feeds.feedburner.com/naukas'),
-    (u'Yuri', 'http://www.lapizarradeyuri.com/feed/')
+#    (u'Yuri', 'http://www.lapizarradeyuri.com/feed/')
   ]
 
   items = []
