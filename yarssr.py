@@ -81,10 +81,6 @@ def index_es():
               if 'es.wikipedia' in uri:
                 entities.append((e['form'], uri))
                 break
-              elif 'en.wikipedia' in uri:
-                entities.append((e['form'], uri))
-              else:
-                entities.append((e['form'], None))
 
       feedlist.append(dict(title=result.title, url=result.url, text=clean_text, entities=entities))
     items.append(dict(site=feed[0], feedlist=feedlist))
