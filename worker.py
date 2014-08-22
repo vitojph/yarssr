@@ -79,5 +79,8 @@ def process_ES():
 
 
 if __name__ == '__main__':
-  print process_EN()
-  print process_ES()
+  with open('EN.data', 'w') as f:
+    f.write(json.dumps(process_EN()))
+
+  with open('ES.data', 'w') as f:
+    f.write(json.dumps(process_ES()))
