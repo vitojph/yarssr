@@ -6,7 +6,7 @@ from flask import render_template
 from requests import get
 
 # first of all, check this
-SERVER_URI = 'http://localhost:5001'
+SERVER_URI = 'http://178.62.168.139:5001'
 
 app = Flask(__name__)
 
