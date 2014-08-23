@@ -1,1 +1,1 @@
-web: gunicorn -w 1 yarssr:app --log-file=-
+web: gunicorn -w 1 client:app --log-file=-
